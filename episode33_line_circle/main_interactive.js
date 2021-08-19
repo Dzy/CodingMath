@@ -66,12 +66,10 @@ window.onload = function() {
 		drawPoint(p1);
 		drawPoint(p2);
 
-		var dist0 = Math.sqrt( ((p0.x-p1.x)*(p0.x-p1.x)) + ((p0.y-p1.y)*(p0.y-p1.y)));
-
-		var dxp = (p0.x - p1.x)/dist0;
-		var dyp = (p0.y - p1.y)/dist0;
-
 		var lineLength = Math.sqrt( ((p0.x-p1.x)*(p0.x-p1.x)) + ((p0.y-p1.y)*(p0.y-p1.y)));
+
+		var dxp = (p0.x - p1.x)/lineLength;
+		var dyp = (p0.y - p1.y)/lineLength;
 
 		var dx = (p0.x - p1.x)/lineLength*radius;
 		var dy = (p0.y - p1.y)/lineLength*radius;
@@ -149,13 +147,11 @@ window.onload = function() {
 			context.stroke();
 		}
 
-
 		// draw our circle
 		context.beginPath();
 		context.strokeStyle = "black";
 		context.arc(p2.x, p2.y, radius, 0, Math.PI * 2, false);
 		context.stroke();
-
 	}
 
 	function drawPoint(p) {
@@ -165,10 +161,6 @@ window.onload = function() {
 		context.fillStyle = "white";
 		context.fill();
 		context.stroke();
-	}
-
-	function signedlineDistance(p0, p1, p2) {
-		return ( ( ((p2.x-p1.x)*(p1.y-p0.y)) - ((p1.x-p0.x)*(p2.y-p1.y)) )/(Math.sqrt( (((p2.x-p1.x)*(p2.x-p1.x)) + ((p2.y-p1.y)*(p2.y-p1.y)))) ));
 	}
 
 	function pointDistance(p0, p1) {
@@ -196,8 +188,6 @@ window.onload = function() {
 		return true;
 	}
 
-//return distance(A, C) + distance(B, C) == distance(A, B);
-
 	function lineDistance(p0, p1, p2) {
 		return ( Math.abs( ((p2.x-p1.x)*(p1.y-p0.y)) - ((p1.x-p0.x)*(p2.y-p1.y)) )/(Math.sqrt( (((p2.x-p1.x)*(p2.x-p1.x)) + ((p2.y-p1.y)*(p2.y-p1.y)))) ));
 	}
@@ -220,7 +210,6 @@ window.onload = function() {
 			y: (A1 * C2 - A2 * C1) / denominator
 		}
 	}
-
 
 	function segmentIntersect(p0, p1, p2, p3) {
 		var A1 = p1.y - p0.y,
