@@ -135,6 +135,11 @@ window.onload = function() {
 					disected = true;
 				}
 
+				if( (pointDistance(p2,p0)<radius)&&(pointDistance(p2,p1)<radius) ) {
+					disected = true;
+				}
+
+
 			}
 		}
 		if(!disected) {
