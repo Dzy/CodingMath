@@ -58,7 +58,6 @@ window.onload = function() {
 		}
 	}
 
-
 	render();
 
 	function render() {
@@ -139,7 +138,6 @@ window.onload = function() {
 					disected = true;
 				}
 
-
 			}
 		}
 		if(!disected) {
@@ -157,41 +155,6 @@ window.onload = function() {
 		context.strokeStyle = "black";
 		context.arc(p2.x, p2.y, radius, 0, Math.PI * 2, false);
 		context.stroke();
-
-
-/*
-
-		var distancetoline = lineDistance(p2, p0, p1);
-		if(distancetoline<=radius) {
-		// draw our normal circles
-
-			var newradius = Math.sqrt((radius*radius)-(distancetoline*distancetoline));
-
-			var nclp = {
-				x: p2.x-(dxp*newradius),
-				y: p2.y-(dyp*newradius)
-			}
-
-			var ncrp = {
-				x: p2.x+(dxp*newradius),
-				y: p2.y+(dyp*newradius)
-			}
-
-			context.beginPath();
-			context.strokeStyle = "blue";
-			context.arc(nclp.x+(distancetoline*dyp), nclp.y+(distancetoline*dxp), 15, 0, Math.PI * 2, false);
-			context.stroke();
-
-			context.beginPath();
-			context.arc(ncrp.x+(distancetoline*dyp), ncrp.y+(distancetoline*dxp), 15, 0, Math.PI * 2, false);
-			context.stroke();
-
-			console.log(newradius, lineDistance(p2, p0, p1));
-		}
-*/
-
-		
-
 
 	}
 
